@@ -1,0 +1,118 @@
+
+OVERVIEW
+=========================================================
+
+This assignment consists of four Artificial Intelligence experiments covering important AI concepts such as search algorithms, knowledge representation, knowledge graphs, and probabilistic reasoning. The implementations demonstrate practical applications of AI techniques for problem solving, decision making, and intelligent systems.
+
+=========================================================
+EXPERIMENT 1
+=========================================================
+
+Title:
+Implementation of Minimax Search, Alpha-Beta Search, Heuristic Alpha-Beta Search, and Monte Carlo Tree Search.
+
+Objective:
+To implement and compare different game search algorithms used in Artificial Intelligence for decision making in adversarial environments.
+
+Algorithms Implemented:
+• Minimax Search
+• Alpha-Beta Pruning
+• Heuristic Alpha-Beta Search
+• Monte Carlo Tree Search (MCTS)
+
+Application:
+Tic-Tac-Toe Game
+
+Outcome:
+The algorithms successfully determine optimal moves and demonstrate various search strategies used in game playing AI.
+
+=========================================================
+EXPERIMENT 2
+=========================================================
+
+Title:
+AI Based Travel Planner using Existing Knowledge Base.
+
+Objective:
+To design an intelligent travel recommendation system that utilizes a predefined knowledge base containing tourist destinations, food preferences, travel costs, and trip durations.
+
+Features:
+• Personalized travel recommendations
+• Budget-based filtering
+• Food recommendations
+• Cost assessment
+• Tour duration planning
+
+Outcome:
+The system successfully recommends suitable travel destinations based on user preferences and budget constraints.
+
+=========================================================
+EXPERIMENT 3
+=========================================================
+
+Title:
+Knowledge Graphs and Tools for Building Knowledge Graphs.
+
+Objective:
+To study Knowledge Graphs and explore tools used for knowledge representation and relationship modelling.
+
+Topics Covered:
+• Knowledge Graph concepts
+• Entities and relationships
+• RDF triples
+• Ontologies
+• Semantic Web
+
+Tools Explored:
+• Neo4j
+• Apache Jena
+• Protégé
+• GraphDB
+• Stardog
+• NetworkX
+
+Outcome:
+Understanding of how knowledge graphs represent structured information and support intelligent reasoning.
+
+=========================================================
+EXPERIMENT 4
+=========================================================
+
+Title:
+Modelling, Problem Representation and Inferencing using Bayesian Networks.
+
+Objective:
+To explore Bayesian Networks and perform probabilistic inference using a medical diagnosis example.
+
+Tools Explored:
+• GeNIe
+• Netica
+• BayesiaLab
+• pgmpy
+• bnlearn
+
+Implementation Example:
+Medical Diagnosis System
+
+Variables:
+• Disease
+• Fever
+• Cough
+
+Outcome:
+The Bayesian Network successfully performs probabilistic reasoning and updates beliefs based on observed evidence.
+
+=========================================================
+SOFTWARE REQUIREMENTS
+=========================================================
+
+• Python 3.x
+• pgmpy Library
+• Standard Python Libraries
+• Any Python IDE (VS Code, PyCharm, Jupyter Notebook)
+
+=========================================================
+CONCLUSION
+=========================================================
+
+These experiments provide practical exposure to fundamental Artificial Intelligence concepts including game search algorithms, intelligent recommendation systems, knowledge representation through knowledge graphs, and probabilistic reasoning using Bayesian Networks. The implementations demonstrate how AI techniques can be applied to solve real-world problems efficiently and intelligently.
