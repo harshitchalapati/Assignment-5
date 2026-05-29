@@ -1,0 +1,323 @@
+ TOOLS FOR MODELLING, PROBLEM REPRESENTATION AND INFERENCING USING BAYESIAN NETWORKS
+=========================================================
+1. INTRODUCTION
+=========================================================
+
+A Bayesian Network (BN) is a probabilistic graphical model that represents random variables and their conditional dependencies using a Directed Acyclic Graph (DAG).
+
+Bayesian Networks are used for reasoning under uncertainty and are widely applied in Artificial Intelligence, Medical Diagnosis, Risk Analysis, Weather Forecasting, and Decision Support Systems.
+
+A Bayesian Network consists of:
+
+• Nodes → Random Variables
+• Edges → Dependencies between variables
+• Conditional Probability Tables (CPTs) → Probability values
+
+=========================================================
+2. TOOLS USED FOR BAYESIAN NETWORKS
+=========================================================
+
+1. GeNIe
+
+Description:
+GeNIe is a graphical tool for creating and analyzing Bayesian Networks.
+
+Features:
+• Drag-and-drop network creation
+• Probabilistic inference
+• Decision networks
+• Easy visualization
+
+---------------------------------------------------------
+
+2. Netica
+
+Description:
+Netica is a popular Bayesian Network software used for probabilistic reasoning.
+
+Features:
+• Graphical modelling
+• Sensitivity analysis
+• Learning from data
+• Fast inference engine
+
+---------------------------------------------------------
+
+3. BayesiaLab
+
+Description:
+BayesiaLab is a commercial platform for advanced Bayesian modelling and machine learning.
+
+Features:
+• Data mining
+• Predictive analytics
+• Causal analysis
+• Knowledge discovery
+
+---------------------------------------------------------
+
+4. pgmpy (Python)
+
+Description:
+pgmpy is an open-source Python library used to build Bayesian Networks.
+
+Features:
+• Model creation
+• Parameter estimation
+• Probabilistic inference
+• Easy integration with Python
+
+---------------------------------------------------------
+
+5. bnlearn
+
+Description:
+A Python package used for learning Bayesian Networks from data.
+
+Features:
+• Structure learning
+• Parameter learning
+• Inference
+• Visualization
+
+=========================================================
+3. PROBLEM REPRESENTATION
+=========================================================
+
+Example Problem:
+Medical Diagnosis System
+
+Variables:
+
+Disease
+Fever
+Cough
+
+Relationship:
+
+Disease → Fever
+Disease → Cough
+
+Graph Representation:
+
+       Disease
+       /     \
+      ↓       ↓
+   Fever    Cough
+
+Meaning:
+
+If a person has a disease, the probability of having fever and cough increases.
+
+=========================================================
+4. CONDITIONAL PROBABILITY TABLES
+=========================================================
+
+P(Disease)
+
+Disease = Yes = 0.10
+Disease = No  = 0.90
+
+---------------------------------------------------------
+
+P(Fever | Disease)
+
+Disease = Yes
+
+Fever = Yes = 0.80
+Fever = No  = 0.20
+
+Disease = No
+
+Fever = Yes = 0.10
+Fever = No  = 0.90
+
+---------------------------------------------------------
+
+P(Cough | Disease)
+
+Disease = Yes
+
+Cough = Yes = 0.70
+Cough = No  = 0.30
+
+Disease = No
+
+Cough = Yes = 0.20
+Cough = No  = 0.80
+
+=========================================================
+5. IMPLEMENTATION USING PYTHON (pgmpy)
+=========================================================
+
+from pgmpy.models import BayesianNetwork
+from pgmpy.factors.discrete import TabularCPD
+from pgmpy.inference import VariableElimination
+
+model = BayesianNetwork([
+    ('Disease', 'Fever'),
+    ('Disease', 'Cough')
+])
+
+cpd_disease = TabularCPD(
+    variable='Disease',
+    variable_card=2,
+    values=[[0.9], [0.1]]
+)
+
+cpd_fever = TabularCPD(
+    variable='Fever',
+    variable_card=2,
+    values=[
+        [0.9, 0.2],
+        [0.1, 0.8]
+    ],
+    evidence=['Disease'],
+    evidence_card=[2]
+)
+
+cpd_cough = TabularCPD(
+    variable='Cough',
+    variable_card=2,
+    values=[
+        [0.8, 0.3],
+        [0.2, 0.7]
+    ],
+    evidence=['Disease'],
+    evidence_card=[2]
+)
+
+model.add_cpds(
+    cpd_disease,
+    cpd_fever,
+    cpd_cough
+)
+
+inference = VariableElimination(model)
+
+result = inference.query(
+    variables=['Disease'],
+    evidence={
+        'Fever': 1,
+        'Cough': 1
+    }
+)
+
+print(result)
+
+=========================================================
+6. INFERENCE EXAMPLE
+=========================================================
+
+Query:
+
+Given that Fever = Yes and Cough = Yes,
+what is the probability that the patient has the Disease?
+
+Evidence:
+
+Fever = Yes
+Cough = Yes
+
+Expected Result:
+
+Probability of Disease increases significantly compared to the prior probability of 10%.
+
+Thus, the Bayesian Network updates beliefs based on observed evidence.
+
+=========================================================
+7. TEST CASES
+=========================================================
+
+TEST CASE 1
+
+Input:
+
+Fever = Yes
+Cough = Yes
+
+Expected Output:
+
+High probability of Disease
+
+Result:
+
+PASS
+
+---------------------------------------------------------
+
+TEST CASE 2
+
+Input:
+
+Fever = No
+Cough = No
+
+Expected Output:
+
+Low probability of Disease
+
+Result:
+
+PASS
+
+---------------------------------------------------------
+
+TEST CASE 3
+
+Input:
+
+Fever = Yes
+Cough = No
+
+Expected Output:
+
+Moderate probability of Disease
+
+Result:
+
+PASS
+
+---------------------------------------------------------
+
+TEST CASE 4
+
+Input:
+
+Fever = No
+Cough = Yes
+
+Expected Output:
+
+Moderate probability of Disease
+
+Result:
+
+PASS
+
+=========================================================
+8. ADVANTAGES OF BAYESIAN NETWORKS
+=========================================================
+
+• Handles uncertainty effectively
+• Supports probabilistic reasoning
+• Easy visualization of relationships
+• Can update beliefs using evidence
+• Useful for decision-making systems
+
+=========================================================
+9. APPLICATIONS
+=========================================================
+
+• Medical diagnosis
+• Weather prediction
+• Fraud detection
+• Recommendation systems
+• Risk assessment
+• Robotics and AI systems
+
+=========================================================
+10. CONCLUSION
+=========================================================
+
+Bayesian Networks are powerful probabilistic models used for representing uncertain knowledge and performing inference. Tools such as GeNIe, Netica, BayesiaLab, pgmpy, and bnlearn enable efficient modelling and reasoning. In this implementation, a medical diagnosis example was developed using a Bayesian Network, demonstrating how evidence can be used to infer the likelihood of a disease.

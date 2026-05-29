@@ -1,0 +1,85 @@
+
+
+destinations = {
+    "Goa": {
+        "type": "Beach",
+        "budget": 15000,
+        "food": "Seafood",
+        "days": 3
+    },
+
+    "Manali": {
+        "type": "Hill Station",
+        "budget": 12000,
+        "food": "North Indian",
+        "days": 4
+    },
+
+    "Jaipur": {
+        "type": "Historical",
+        "budget": 10000,
+        "food": "Rajasthani",
+        "days": 2
+    },
+
+    "Kerala": {
+        "type": "Nature",
+        "budget": 18000,
+        "food": "South Indian",
+        "days": 5
+    },
+
+    "Mumbai": {
+        "type": "City",
+        "budget": 14000,
+        "food": "Street Food",
+        "days": 3
+    }
+}
+
+
+
+def recommend_trip(preference, budget):
+
+    recommendations = []
+
+    for place, details in destinations.items():
+
+        if details["type"].lower() == preference.lower():
+
+            if details["budget"] <= budget:
+                recommendations.append((place, details))
+
+    return recommendations
+
+
+
+
+print("===== AI Travel Planner =====")
+
+preference = input(
+    "Enter Preference (Beach/Hill Station/Historical/Nature/City): "
+)
+
+budget = int(
+    input("Enter Budget: ")
+)
+
+results = recommend_trip(preference, budget)
+
+if results:
+
+    print("\nRecommended Destinations:\n")
+
+    for place, details in results:
+
+        print("Destination :", place)
+        print("Type        :", details["type"])
+        print("Budget      :", details["budget"])
+        print("Food        :", details["food"])
+        print("Tour Days   :", details["days"])
+        print("-----------------------------")
+
+else:
+
+    print("\nNo destination found within budget.")

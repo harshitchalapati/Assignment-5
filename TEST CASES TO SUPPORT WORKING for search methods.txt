@@ -1,0 +1,205 @@
+TEST CASES TO SUPPORT WORKING AND CORRECTNESS OF IMPLEMENTATION
+
+=========================================================
+TEST CASE 1 – MINIMAX SEARCH
+=========================================================
+
+Input Board:
+
+X | X | -
+O | O | -
+- | - | -
+
+Code:
+
+game.board = [
+    'X','X',' ',
+    'O','O',' ',
+    ' ',' ',' '
+]
+
+print(minimax(game, True))
+
+Expected Output:
+1
+
+Result:
+PASS
+
+Explanation:
+Player X can win immediately by placing X in the third position of the first row. Therefore Minimax returns 1.
+
+
+=========================================================
+TEST CASE 2 – ALPHA-BETA PRUNING
+=========================================================
+
+Input Board:
+
+X | X | -
+O | O | -
+- | - | -
+
+Code:
+
+game.board = [
+    'X','X',' ',
+    'O','O',' ',
+    ' ',' ',' '
+]
+
+print(alpha_beta(game, -float('inf'), float('inf'), True))
+
+Expected Output:
+1
+
+Result:
+PASS
+
+Explanation:
+Alpha-Beta Pruning produces the same optimal result as Minimax while exploring fewer nodes.
+
+
+=========================================================
+TEST CASE 3 – HEURISTIC ALPHA-BETA SEARCH
+=========================================================
+
+Input Board:
+
+X | O | X
+O | X | -
+- | - | O
+
+Code:
+
+game.board = [
+    'X','O','X',
+    'O','X',' ',
+    ' ',' ','O'
+]
+
+print(
+    heuristic_alpha_beta(
+        game,
+        depth=3,
+        alpha=-float('inf'),
+        beta=float('inf'),
+        maximizing=True
+    )
+)
+
+Expected Output:
+Positive Value (> 0)
+
+Result:
+PASS
+
+Explanation:
+The board position is favorable for player X. The heuristic evaluation returns a positive score indicating an advantage for X.
+
+
+=========================================================
+TEST CASE 4 – MONTE CARLO TREE SEARCH
+=========================================================
+
+Input Board:
+
+X | O | X
+O | X | -
+- | - | O
+
+Code:
+
+game.board = [
+    'X','O','X',
+    'O','X',' ',
+    ' ',' ','O'
+]
+
+print(monte_carlo(game, 500))
+
+Expected Output:
+6
+
+Result:
+PASS
+
+Explanation:
+Move 6 completes the diagonal and provides a winning strategy for X. Monte Carlo simulations identify it as the best move.
+
+
+=========================================================
+TEST CASE 5 – DRAW DETECTION
+=========================================================
+
+Input Board:
+
+X | O | X
+X | O | O
+O | X | X
+
+Code:
+
+game.board = [
+    'X','O','X',
+    'X','O','O',
+    'O','X','X'
+]
+
+print(game.winner())
+
+Expected Output:
+Draw
+
+Result:
+PASS
+
+Explanation:
+The board is completely filled and no player has three marks in a row. Hence the result is Draw.
+
+
+=========================================================
+TEST CASE 6 – WINNING STATE DETECTION
+=========================================================
+
+Input Board:
+
+X | X | X
+O | O | -
+- | - | -
+
+Code:
+
+game.board = [
+    'X','X','X',
+    'O','O',' ',
+    ' ',' ',' '
+]
+
+print(game.winner())
+
+Expected Output:
+X
+
+Result:
+PASS
+
+Explanation:
+The first row contains three X's consecutively, therefore player X is declared the winner.
+
+
+=========================================================
+SUMMARY TABLE
+=========================================================
+
+TC1 – Minimax Search              → PASS
+TC2 – Alpha-Beta Pruning          → PASS
+TC3 – Heuristic Alpha-Beta Search → PASS
+TC4 – Monte Carlo Tree Search     → PASS
+TC5 – Draw Detection              → PASS
+TC6 – Winner Detection            → PASS
+
+
+CONCLUSION
+
+All test cases were executed successfully. The Minimax Search, Alpha-Beta Pruning, Heuristic Alpha-Beta Search, and Monte Carlo Tree Search algorithms produced correct outputs for winning, drawing, and decision-making scenarios, confirming the correctness and effectiveness of the implementation.

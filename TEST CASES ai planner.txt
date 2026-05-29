@@ -1,0 +1,169 @@
+TEST CASES TO SUPPORT WORKING AND CORRECTNESS OF AI TRAVEL PLANNER
+
+=========================================================
+TEST CASE 1 – BEACH DESTINATION RECOMMENDATION
+=========================================================
+
+Input:
+
+Preference = Beach
+Budget = 20000
+
+Expected Output:
+
+Destination : Goa
+Type        : Beach
+Budget      : 15000
+Food        : Seafood
+Tour Days   : 3
+
+Result:
+
+PASS
+
+Explanation:
+
+Goa matches the user's beach preference and its budget (15000) is within the user's budget (20000).
+
+
+=========================================================
+TEST CASE 2 – NATURE DESTINATION RECOMMENDATION
+=========================================================
+
+Input:
+
+Preference = Nature
+Budget = 20000
+
+Expected Output:
+
+Destination : Kerala
+Type        : Nature
+Budget      : 18000
+Food        : South Indian
+Tour Days   : 5
+
+Result:
+
+PASS
+
+Explanation:
+
+Kerala satisfies the nature preference and is affordable within the specified budget.
+
+
+=========================================================
+TEST CASE 3 – HILL STATION RECOMMENDATION
+=========================================================
+
+Input:
+
+Preference = Hill Station
+Budget = 15000
+
+Expected Output:
+
+Destination : Manali
+Type        : Hill Station
+Budget      : 12000
+Food        : North Indian
+Tour Days   : 4
+
+Result:
+
+PASS
+
+Explanation:
+
+Manali matches the hill station preference and falls within the budget limit.
+
+
+=========================================================
+TEST CASE 4 – HISTORICAL PLACE RECOMMENDATION
+=========================================================
+
+Input:
+
+Preference = Historical
+Budget = 12000
+
+Expected Output:
+
+Destination : Jaipur
+Type        : Historical
+Budget      : 10000
+Food        : Rajasthani
+Tour Days   : 2
+
+Result:
+
+PASS
+
+Explanation:
+
+Jaipur is recommended because it matches the historical preference and budget requirements.
+
+
+=========================================================
+TEST CASE 5 – CITY TOUR RECOMMENDATION
+=========================================================
+
+Input:
+
+Preference = City
+Budget = 15000
+
+Expected Output:
+
+Destination : Mumbai
+Type        : City
+Budget      : 14000
+Food        : Street Food
+Tour Days   : 3
+
+Result:
+
+PASS
+
+Explanation:
+
+Mumbai matches the city preference and is within the specified budget.
+
+
+=========================================================
+TEST CASE 6 – NO DESTINATION FOUND
+=========================================================
+
+Input:
+
+Preference = Beach
+Budget = 5000
+
+Expected Output:
+
+No destination found within budget.
+
+Result:
+
+PASS
+
+Explanation:
+
+The budget is lower than the minimum cost required for any beach destination in the knowledge base.
+
+
+=========================================================
+SUMMARY TABLE
+=========================================================
+
+TC1 – Beach Recommendation      → PASS
+TC2 – Nature Recommendation     → PASS
+TC3 – Hill Station              → PASS
+TC4 – Historical Place          → PASS
+TC5 – City Tour                 → PASS
+TC6 – Budget Constraint Check   → PASS
+
+
+CONCLUSION
+
+The AI Travel Planner successfully recommends destinations based on user preferences and budget constraints. The system correctly performs personalized tour planning, food recommendation, and cost assessment using its knowledge base. All test cases passed successfully, validating the correctness of the implementation.

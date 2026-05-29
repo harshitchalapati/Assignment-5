@@ -1,0 +1,52 @@
+def alpha_beta(game, alpha, beta, maximizing):
+
+    result = game.winner()
+
+    if result == 'X':
+        return 1
+    elif result == 'O':
+        return -1
+    elif result == 'Draw':
+        return 0
+
+    if maximizing:
+
+        value = -float('inf')
+
+        for move in game.available_moves():
+
+            temp = game.clone()
+            temp.make_move(move, 'X')
+
+            value = max(
+                value,
+                alpha_beta(temp, alpha, beta, False)
+            )
+
+            alpha = max(alpha, value)
+
+            if beta <= alpha:
+                break
+
+        return value
+
+    else:
+
+        value = float('inf')
+
+        for move in game.available_moves():
+
+            temp = game.clone()
+            temp.make_move(move, 'O')
+
+            value = min(
+                value,
+                alpha_beta(temp, alpha, beta, True)
+            )
+
+            beta = min(beta, value)
+
+            if beta <= alpha:
+                break
+
+        return value
